@@ -1,0 +1,96 @@
+@charset "UTF-8";
+/*
+* @Author: 李杰
+* @Date:   2018-03-27 11:02:33
+* @Last Modified by:   张焱鑫
+* @Last Modified time: 2018-08-27 13:48:03
+*/
+/* 单位 */
+/* 设计稿 750 设为 32 */
+/* 设计稿 1242 设为 53 */
+/* 计算方法: (设计稿宽 * 16 / 375) */
+/*
+* @Author: 张焱鑫
+* @Date:   2017-10-27 14:28:05
+* @Last Modified by:   李杰
+* @Last Modified time: 2018-04-25 16:22:47
+*/
+html,
+body {
+  background: #f1f0f6; }
+
+.apply-list {
+  padding: 0 0.5625rem; }
+  .apply-list .apply-box {
+    margin-top: 0.5625rem;
+    padding: 0 0.25rem;
+    border: 1px solid #ddd;
+    background: #fff; }
+    .apply-list .apply-box .apply-inner-box {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: justify;
+      -webkit-justify-content: space-between;
+         -moz-box-pack: justify;
+          -ms-flex-pack: justify;
+              justify-content: space-between;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+         -moz-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+      height: 2.8125rem;
+      padding: 0 0.4375rem;
+      -webkit-box-sizing: border-box;
+         -moz-box-sizing: border-box;
+              box-sizing: border-box;
+      border-bottom: 1px solid #f2f2f2; }
+      .apply-list .apply-box .apply-inner-box .apply-right {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+           -moz-box-align: center;
+            -ms-flex-align: center;
+                align-items: center; }
+        .apply-list .apply-box .apply-inner-box .apply-right .right-arrow {
+          width: 0.5rem;
+          height: 0.84375rem; }
+        .apply-list .apply-box .apply-inner-box .apply-right .update-time {
+          margin-right: 0.4375rem;
+          font-size: 0.625rem;
+          color: #3aa5ff; }
+      .apply-list .apply-box .apply-inner-box .apply-title-box {
+        -webkit-box-flex: 1;
+        -webkit-flex: 1;
+           -moz-box-flex: 1;
+            -ms-flex: 1;
+                flex: 1;
+        font-size: 0.8125rem;
+        color: #666; }
+        .apply-list .apply-box .apply-inner-box .apply-title-box .apply-sec-title {
+          display: inline-block;
+          margin-left: 0.5625rem; }
+
+.tips-box {
+  padding: 0 0.5625rem; }
+  .tips-box .tip-inner-box {
+    margin-top: 1.125rem;
+    line-height: 1.125rem;
+    font-size: 0.75rem;
+    color: #3aa5ff;
+    padding-left: 1.5625rem;
+    background: url("../images/tipsIcon.png") left 0.09375rem no-repeat;
+    -webkit-background-size: 0.9375rem 0.9375rem;
+            background-size: 0.9375rem 0.9375rem; }
+    .tips-box .tip-inner-box .colon {
+      display: inline-block;
+      margin: 0 0.5625rem 0 0.15625rem; }
+
+/*# sourceMappingURL=maps/applicant_selection.css.map */

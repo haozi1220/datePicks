@@ -1,0 +1,41 @@
+@charset "UTF-8";
+/*
+* @Author: 李杰
+* @Date:   2018-03-27 11:02:33
+* @Last Modified by:   张焱鑫
+* @Last Modified time: 2018-08-27 13:48:03
+*/
+/* 单位 */
+/* 设计稿 750 设为 32 */
+/* 设计稿 1242 设为 53 */
+/* 计算方法: (设计稿宽 * 16 / 375) */
+/*
+* @Author: 张焱鑫
+* @Date:   2017-10-27 14:28:05
+* @Last Modified by:   李杰
+* @Last Modified time: 2018-04-25 16:22:47
+*/
+.hot-address {
+  font-size: 0.8125rem;
+  color: #666; }
+  .hot-address .hot-title {
+    line-height: 2.75rem;
+    padding-left: 1.5rem;
+    background: #f1f0f6;
+    border-bottom: 1px solid #e6e6e6; }
+  .hot-address .hot-list {
+    padding: 0 0.84375rem 1.09375rem; }
+    .hot-address .hot-list .hot-city {
+      padding: 0 0.65625rem;
+      border-bottom: 1px dotted #c3c3c3; }
+      .hot-address .hot-list .hot-city .city-name {
+        display: block;
+        line-height: 2.75rem;
+        max-width: 100%;
+        color: #666;
+        overflow: hidden;
+        -o-text-overflow: ellipsis;
+           text-overflow: ellipsis;
+        white-space: nowrap; }
+
+/*# sourceMappingURL=maps/address_selection.css.map */

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>申请扣除信息填写</title>
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/housing_rental_deduct.css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/address.js"></script>
+    <script type="text/javascript" src="js/swiper.min.js"></script>
+    <script type="text/javascript" src="js/dySelect.js"></script>
+    <script type="text/javascript" src="js/dySelect3.js"></script>
+    <script type="text/javascript" src="js/datePicker.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript">
+        ;
+        (function(win, doc) {
+            function change() {
+                doc.documentElement.style.fontSize = 16 * doc.documentElement.clientWidth / 375 + 'px';
+            }
+            change();
+            win.addEventListener('resize', function() {
+                change();
+            }, false);
+        })(window, document);
+    </script>
+</head>
+
+<body>
+    <div class="main">
+        <div class="hrd_list_wrapper">
+            <h1 class="hrd_main_tit">住房贷款利息专项附加扣除</h1>
+            <div class="hrd_list_item">
+                <div class="radio_item">
+                    <div class="radio_item_text">是否申请扣除</div>
+                    <div class="radio_wraper"><label class="radio_item_box" for="decunt"><input class="radio_item" type="radio" name="apply" id="decunt"><i class="tip"></i><span class="text">是</span></label><label class="radio_item_box" for="cunt"><input class="radio_item" type="radio" name="apply" id="cunt"><i class="tip"></i><span class="text">否</span></label></div>
+                </div>
+                <div class="radio_item first_house">
+                    <div class="radio_item_text">是否是您本人或配偶（如果）购买的首套住房（房屋权属归您本人或配偶所有）</div>
+                    <div class="radio_wraper"><label class="radio_item_box" for="has"><input class="radio_item" type="radio" name="house" id="has"><i class="tip"></i><span class="text">是</span></label><label class="radio_item_box" for="no"><input class="radio_item" type="radio" name="house" id="no"><i class="tip"></i><span class="text">否</span></label></div>
+                </div>
+                <div class="radio_item">
+                    <div class="radio_item_text">是否处于偿还贷款期间</div>
+                    <div class="radio_wraper"><label class="radio_item_box" for="inpayment"><input class="radio_item" type="radio" name="payment" id="inpayment"><i class="tip"></i><span class="text">是</span></label><label class="radio_item_box" for="uninpayment"><input class="radio_item" type="radio" name="payment" id="uninpayment"><i class="tip"></i><span class="text">否</span></label></div>
+                </div>
+            </div>
+            <div class="hrd_list_item">
+                <div class="radio_item">
+                    <div class="radio_item_text">是否有配偶</div>
+                    <div class="radio_wraper"><label class="radio_item_box" for="married"><input class="radio_item" type="radio" name="marry" id="married"><i class="tip"></i><span class="text">是</span></label><label class="radio_item_box" for="unmarried"><input class="radio_item" type="radio" name="marry" id="unmarried"><i class="tip"></i><span class="text">否</span></label></div>
+                </div>
+                <div class="radio_item">
+                    <div class="promise">
+                        <div class="ifcheck"><input id="checked" type="checkbox"><label class="ischeck" for="checked"></label></div>
+                        <div class="pro_detail">本人承诺：该项教育支出不再由本人父母申请子女教育专项 附加扣除。</div>
+                    </div>
+                </div>
+                <div class="radio_item">
+                    <div class="input_item">
+                        <div class="input_item_text">配偶姓名</div>
+                        <div class="input_wraper"><input class="input_wraper_item" type="text" placeholder="请输入"></div>
+                    </div>
+                </div>
+                <div class="radio_item">
+                    <div class="selectBox">
+                        <div class="leftText">证件类型</div>
+                        <div class="rightBox"><a class="IDTypeClick selectInput" href="javascript:;">请选择</a>
+                            <div class="selectIcon"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="radio_item">
+                    <div class="input_item">
+                        <div class="input_item_text">证件号码</div>
+                        <div class="input_wraper"><input class="input_wraper_item" type="text" placeholder="请输入"></div>
+                    </div>
+                </div>
+                <div class="radio_item">
+                    <div class="selectBox">
+                        <div class="leftText">国籍</div>
+                        <div class="rightBox"><a class="nationClick selectInput" href="javascript:;">请选择</a>
+                            <div class="selectIcon"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="radio_item">
+                    <div class="radio_item_text">是否为中国内地个人所得税纳税人</div>
+                    <div class="radio_wraper"><label class="radio_item_box" for="isTaxpayer"><input class="radio_item" type="radio" name="taxpayer" id="isTaxpayer"><i class="tip"></i><span class="text">是</span></label><label class="radio_item_box" for="nonTaxpayer"><input class="radio_item" type="radio" name="taxpayer" id="nonTaxpayer"><i class="tip"></i><span class="text">否</span></label></div>
+                </div>
+                <div class="radio_item">
+                    <div class="input_item">
+                        <div class="input_item_text">纳税人识别号</div>
+                        <div class="input_wraper"><input class="input_wraper_item" type="text" placeholder="请输入"></div><a class="iconQuery" href="javascript:;"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="hrd_list_item">
+                <div class="radio_item">
+                    <div class="selectBox addSelectBox">
+                        <div class="leftText">该首套住房所在地</div>
+                        <div class="rightBox"><a class="selectInput addressBtn" href="javascript:;">请选择</a>
+                            <div class="selectIcon"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="radio_item">
+                    <div class="input_item">
+                        <div class="input_item_text">街道</div>
+                        <div class="input_wraper"><input class="input_wraper_item" type="text" placeholder="请输入"></div>
+                    </div>
+                </div>
+                <div class="radio_item">
+                    <div class="input_item">
+                        <div class="input_item_text">门牌号</div>
+                        <div class="input_wraper"><input class="input_wraper_item" type="text" placeholder="请输入"></div>
+                    </div>
+                </div>
+                <div class="radio_item">
+                    <div class="selectBox">
+                        <div class="leftText">贷款行名称</div>
+                        <div class="rightBox"><a class="bankClick selectInput" href="javascript:;">请选择</a>
+                            <div class="selectIcon"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="radio_item">
+                    <div class="selectBox">
+                        <div class="leftText">本年度申请享受扣除开始月份</div>
+                        <div class="rightBox"><a class="startClick selectInput" href="javascript:;">请选择</a>
+                            <div class="selectIcon"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="radio_item">
+                    <div class="selectBox">
+                        <div class="leftText">本年度申请享受扣除结束月份</div>
+                        <div class="rightBox"><a class="endClick selectInput" href="javascript:;">请选择</a>
+                            <div class="selectIcon"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="radio_item">
+                    <div class="selectBox">
+                        <div class="leftText">单月享受扣除金额</div>
+                        <div class="rightBox"><a class="selectInput light" href="javascript:;">1000元</a></div>
+                    </div>
+                </div>
+                <div class="radio_item">
+                    <div class="selectBox">
+                        <div class="leftText">今年截至本月累计已享 受扣除金额</div>
+                        <div class="rightBox"><a class="selectInput light" href="javascript:;">700元</a></div>
+                    </div>
+                </div>
+                <div class="radio_item">
+                    <div class="selectBox">
+                        <div class="leftText">全年预计享受扣除金额</div>
+                        <div class="rightBox"><a class="selectInput light" href="javascript:;">900元</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hrd_bottom_btns"><a class="btn_main" href="javascript:;">保存</a><a class="btn_sub" href="javascript:;">取消</a></div>
+    </div>
+    <div class="hot-address">
+        <div class="hot-title">热门地区</div>
+        <div class="hot-list">
+            <div class="hot-city"><a class="city-name" href="javascript:;">北京</a><a class="city-name" href="javascript:;">天津市</a><a class="city-name" href="javascript:;">河北省</a><a class="city-name" href="javascript:;">山西省</a><a class="city-name" href="javascript:;">内蒙古自治区</a><a class="city-name" href="javascript:;">辽宁省</a><a class="city-name" href="javascript:;">吉林省</a><a class="city-name" href="javascript:;">黑龙江省</a><a class="city-name" href="javascript:;">上海市</a><a class="city-name" href="javascript:;">江苏省</a><a class="city-name" href="javascript:;">浙江省</a><a class="city-name" href="javascript:;">齐齐哈尔市</a></div>
+        </div>
+    </div>
+    <script>
+        $(function() {
+            $('.IDTypeClick').select('请选择证件类型', [{
+                    'value': 0,
+                    'name': '请选择'
+                },
+                {
+                    'value': 1,
+                    'name': '二代身份证'
+                }
+            ])
+            $('.nationClick').select('请选择证件类型', [{
+                    'value': 0,
+                    'name': '请选择'
+                },
+                {
+                    'value': 1,
+                    'name': '中国'
+                }
+            ])
+            $('.bankClick').select('请选择贷款行', [{
+                    'value': 0,
+                    'name': '请选择'
+                },
+                {
+                    'value': 1,
+                    'name': '中国银行'
+                }
+            ])
+            $('.startClick').select('请选择开始月份', [{
+                    'value': 0,
+                    'name': '请选择'
+                },
+                {
+                    'value': 1,
+                    'name': 1
+                }
+            ])
+            $('.endClick').select('请选择结束月份', [{
+                    'value': 0,
+                    'name': '请选择'
+                },
+                {
+                    'value': 1,
+                    'name': 1
+                }
+            ])
+            $('.decountClick').select('请选择结束月份', [{
+                    'value': 0,
+                    'name': '请选择'
+                },
+                {
+                    'value': 1,
+                    'name': 1000
+                }
+            ])
+            //- 三级联动地址选择
+            $('.addressBtn').dateSelect(["310000", "310100", "310104"]);
+        })
+    </script>
+</body>
+
+</html>
