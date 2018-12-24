@@ -85,14 +85,18 @@ $(function () {
         },
         dateSelect: function dateSelect() {
             return this.each(function() {
+                var currentDater = new Date();
+                var currentYear = currentDater.getFullYear();
+                var currentMon = currentDater.getMonth();
+                var currentDate = currentDater.getDate();
+                var defaultDate = currentYear + '-' + (1 + currentMon) + '-' + currentDate;
                 var that = $(this);
-                var value = that.attr('value') || "110000,110100,110101"
-                var arr = value.split(',')
+                var value = that.attr('value') || defaultDate;
+                var arr = value.split('-');
                 var addSelect = new dateSelectSwiper({
                     el: '.addSelect_box',
                     btn: that,
-                    value: arr,
-                    data: _addressData_
+                    value: arr
                 });
                 that.on('click', function() {
                     addSelect.openSelectSwiper();

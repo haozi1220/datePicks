@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>申请扣除信息填写</title>
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/children_edu.css">
+    <link rel="stylesheet" href="../../css/swiper.min.css">
+    <script type="text/javascript" src="../../lib/js/jquery.min.js"></script>
+    <script type="text/javascript" src="../../lib/js/swiper.min.js"></script>
+    <script type="text/javascript" src="../../lib/js/dySelect.js"></script>
+    <script type="text/javascript" src="../../lib/js/datePicker.js"></script>
+    <script type="text/javascript" src="../../main.js"></script>
+    <script type="text/javascript">
+        ;
+        (function(win, doc) {
+            function change() {
+                doc.documentElement.style.fontSize = 16 * doc.documentElement.clientWidth / 375 + 'px';
+            }
+            change();
+            win.addEventListener('resize', function() {
+                change();
+            }, false);
+        })(window, document);
+    </script>
+</head>
+
+<body>
+    <div class="main">
+        <h3 class="children_edu_title">子女教育专项扣除</h3>
+        <div class="children_edu_radio">
+            <div class="radio_item">
+                <div class="radio_item2">
+                    <div class="radio_item_text">是否申请扣除</div>
+                    <div class="radio_wraper"><label class="radio_item_box" for="radio1-1"><input class="radio_item" type="radio" name="radio1" id="radio1-1"><span class="text">是</span></label><label class="radio_item_box" for="radio1-2"><input class="radio_item" type="radio" name="radio1" id="radio1-2"><span class="text">否</span></label></div>
+                </div>
+            </div>
+        </div>
+        <div class="promise">
+            <div class="ifcheck"><input id="checked" type="checkbox"><label class="ischeck" for="checked"></label></div>
+            <div class="pro_detail">本人承诺：该项教育支出不再由本人父母申请子女教育专项附加扣除。</div>
+        </div>
+        <div class="from_wrapper">
+            <div class="form_wrapper_item">
+                <div class="title_item">
+                    <div class="titleBox"><span class="text">子女</span></div>
+                </div>
+                <ul class="form children_edu_form">
+                    <li class="form_item">
+                        <div class="input_item">
+                            <div class="input_item_text">姓名：</div>
+                            <div class="input_wraper"><input class="input_wraper_item" type="text" placeholder="请输入"></div>
+                        </div>
+                    </li>
+                    <li class="form_item">
+                        <div class="selectBox">
+                            <div class="leftText">证件类型：</div>
+                            <div class="rightBox"><a class="idType selectInput" href="javascript:;">请选择</a>
+                                <div class="selectIcon"></div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="form_item">
+                        <div class="input_item">
+                            <div class="input_item_text">证件号码：</div>
+                            <div class="input_wraper"><input class="input_wraper_item" type="text" placeholder="请输入"></div>
+                        </div>
+                    </li>
+                    <li class="form_item">
+                        <div class="form_date">
+                            <div class="form_date_left">出生日期</div>
+                            <div class="form_date_right"><input class="calendar_slect" type="text"><span class="placeholder">请选择</span></div>
+                        </div>
+                    </li>
+                    <li class="form_item">
+                        <div class="selectBox">
+                            <div class="leftText">教育阶段：</div>
+                            <div class="rightBox"><a class="eduStage selectInput" href="javascript:;">请选择</a>
+                                <div class="selectIcon"></div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="form_item">
+                        <div class="input_item">
+                            <div class="input_item_text">就读学校：</div>
+                            <div class="input_wraper"><input class="input_wraper_item" type="text" placeholder="请输入"></div>
+                        </div>
+                    </li>
+                    <li class="form_item">
+                        <div class="selectBox">
+                            <div class="leftText">本年度申请享受扣除开始月份：</div>
+                            <div class="rightBox"><a class="startMonth selectInput" href="javascript:;">请选择</a>
+                                <div class="selectIcon"></div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="form_item">
+                        <div class="selectBox">
+                            <div class="leftText">本年度申请享受扣除结束月份：</div>
+                            <div class="rightBox"><a class="endMonth selectInput" href="javascript:;">请选择</a>
+                                <div class="selectIcon"></div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="form_wrapper_item">
+                <div class="title_item">
+                    <div class="titleBox"><span class="text">该子女另一方父/母信息</span></div>
+                </div>
+                <ul class="form parent_form">
+                    <li class="form_item">
+                        <div class="radio_item">
+                            <div class="radio_item_text">是否为本人配偶</div>
+                            <div class="radio_wraper"><label class="radio_item_box" for="radio2-1"><input class="radio_item" type="radio" name="radio2" id="radio2-1"><i class="tip"></i><span class="text">是</span></label><label class="radio_item_box" for="radio2-2"><input class="radio_item" type="radio" name="radio2" id="radio2-2"><i class="tip"></i><span class="text">否</span></label></div>
+                        </div>
+                    </li>
+                    <li class="form_item">
+                        <div class="input_item">
+                            <div class="input_item_text">姓名：</div>
+                            <div class="input_wraper"><input class="input_wraper_item" type="text" placeholder="请输入"></div>
+                        </div>
+                    </li>
+                    <li class="form_item">
+                        <div class="selectBox">
+                            <div class="leftText">证件类型：</div>
+                            <div class="rightBox"><a class="idTypeParent selectInput" href="javascript:;">请选择</a>
+                                <div class="selectIcon"></div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="form_item">
+                        <div class="input_item">
+                            <div class="input_item_text">证件号码：</div>
+                            <div class="input_wraper"><input class="input_wraper_item" type="text" placeholder="请输入"></div>
+                        </div>
+                    </li>
+                    <li class="form_item">
+                        <div class="selectBox">
+                            <div class="leftText">国籍：</div>
+                            <div class="rightBox"><a class="nationality selectInput" href="javascript:;">请选择</a>
+                                <div class="selectIcon"></div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="form_item">
+                        <div class="radio_item">
+                            <div class="radio_item_text">是否为中国内地个人所得税纳税人：</div>
+                            <div class="radio_wraper"><label class="radio_item_box" for="radio3-1"><input class="radio_item" type="radio" name="radio3" id="radio3-1"><i class="tip"></i><span class="text">是</span></label><label class="radio_item_box" for="radio3-2"><input class="radio_item" type="radio" name="radio3" id="radio3-2"><i class="tip"></i><span class="text">否</span></label></div>
+                        </div>
+                    </li>
+                    <li class="form_item">
+                        <div class="input_item">
+                            <div class="input_item_text">纳税人识别号：</div>
+                            <div class="input_wraper"><input class="input_wraper_item" type="text" placeholder="请输入"></div>
+                        </div>
+                    </li>
+                    <li class="form_item">
+                        <div class="selectBox">
+                            <div class="leftText">是否与该子女另一方父/母分摊扣除：</div>
+                            <div class="rightBox"><a class="shareOrNot selectInput" href="javascript:;">请选择</a>
+                                <div class="selectIcon"></div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="form_item value_item">
+                        <div class="selectBox">
+                            <div class="leftText">单月享受扣除金额：</div>
+                            <div class="rightBox"><a class="selectInput light" href="javascript:;">1000元(该子女的另一方父母未享受扣除)</a></div>
+                        </div>
+                    </li>
+                    <li class="form_item value_item">
+                        <div class="selectBox">
+                            <div class="leftText">今年截至本月累计已享受扣除金额：</div>
+                            <div class="rightBox"><a class="selectInput light" href="javascript:;">700元</a></div>
+                        </div>
+                    </li>
+                    <li class="form_item value_item">
+                        <div class="selectBox">
+                            <div class="leftText">全年预计享受扣除金额：</div>
+                            <div class="rightBox"><a class="selectInput light" href="javascript:;">900元</a></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="addBtnBox"><a class="btn_main addBtn" href="javacript:;">添加</a></div>
+        <div class="btnBox"><a class="btn_main saveBtn" href="applicant_selection.html">保存</a><a class="btn_sub cancleBtn" href="javacript:;">取消</a></div>
+        <script>
+            $(function() {
+                $('.idType').select('请选择证件类型', [{
+                        'value': 0,
+                        'name': '请选择'
+                    },
+                    {
+                        'value': 1,
+                        'name': '二代身份证'
+                    },
+                    {
+                        'value': 2,
+                        'name': '港澳通行证'
+                    },
+                    {
+                        'value': 3,
+                        'name': '台湾通行证'
+                    },
+                    {
+                        'value': 4,
+                        'name': '护照'
+                    },
+                    {
+                        'value': 5,
+                        'name': '脑残证'
+                    },
+                    {
+                        'value': 6,
+                        'name': '二次元证'
+                    },
+                    {
+                        'value': 7,
+                        'name': '铲屎官证'
+                    }
+                ])
+                $('.eduStage').select('选择教育阶段', [{
+                        'value': 0,
+                        'name': '请选择'
+                    },
+                    {
+                        'value': 1,
+                        'name': '幼儿园'
+                    },
+                    {
+                        'value': 2,
+                        'name': '小学'
+                    },
+                    {
+                        'value': 3,
+                        'name': '初中'
+                    },
+                    {
+                        'value': 4,
+                        'name': '高中'
+                    },
+                    {
+                        'value': 5,
+                        'name': '大学'
+                    },
+                    {
+                        'value': 6,
+                        'name': '硕士'
+                    },
+                    {
+                        'value': 7,
+                        'name': '博士'
+                    }
+                ])
+                $('.startMonth').select('选择开始月份', [{
+                        'value': 0,
+                        'name': '请选择'
+                    },
+                    {
+                        'value': 1,
+                        'name': '一月'
+                    },
+                    {
+                        'value': 2,
+                        'name': '二月'
+                    },
+                    {
+                        'value': 3,
+                        'name': '三月'
+                    },
+                    {
+                        'value': 4,
+                        'name': '四月'
+                    },
+                    {
+                        'value': 5,
+                        'name': '五月'
+                    },
+                    {
+                        'value': 6,
+                        'name': '六月'
+                    },
+                    {
+                        'value': 7,
+                        'name': '七月'
+                    },
+                    {
+                        'value': 8,
+                        'name': '八月'
+                    },
+                    {
+                        'value': 9,
+                        'name': '九月'
+                    },
+                    {
+                        'value': 10,
+                        'name': '十月'
+                    },
+                    {
+                        'value': 11,
+                        'name': '十一月'
+                    },
+                    {
+                        'value': 12,
+                        'name': '十二月'
+                    }
+                ])
+                $('.endMonth').select('选择结束月份', [{
+                        'value': 0,
+                        'name': '请选择'
+                    },
+                    {
+                        'value': 1,
+                        'name': '一月'
+                    },
+                    {
+                        'value': 2,
+                        'name': '二月'
+                    },
+                    {
+                        'value': 3,
+                        'name': '三月'
+                    },
+                    {
+                        'value': 4,
+                        'name': '四月'
+                    },
+                    {
+                        'value': 5,
+                        'name': '五月'
+                    },
+                    {
+                        'value': 6,
+                        'name': '六月'
+                    },
+                    {
+                        'value': 7,
+                        'name': '七月'
+                    },
+                    {
+                        'value': 8,
+                        'name': '八月'
+                    },
+                    {
+                        'value': 9,
+                        'name': '九月'
+                    },
+                    {
+                        'value': 10,
+                        'name': '十月'
+                    },
+                    {
+                        'value': 11,
+                        'name': '十一月'
+                    },
+                    {
+                        'value': 12,
+                        'name': '十二月'
+                    }
+                ])
+                $('.idTypeParent').select('选择证件类型', [{
+                        'value': 0,
+                        'name': '请选择'
+                    },
+                    {
+                        'value': 1,
+                        'name': '二代身份证'
+                    },
+                    {
+                        'value': 2,
+                        'name': '港澳通行证'
+                    },
+                    {
+                        'value': 3,
+                        'name': '台湾通行证'
+                    },
+                    {
+                        'value': 4,
+                        'name': '护照'
+                    },
+                    {
+                        'value': 5,
+                        'name': '脑残证'
+                    },
+                    {
+                        'value': 6,
+                        'name': '二次元证'
+                    },
+                    {
+                        'value': 7,
+                        'name': '铲屎官证'
+                    }
+                ])
+                $('.nationality').select('选择国籍', [{
+                        'value': 0,
+                        'name': '请选择'
+                    },
+                    {
+                        'value': 1,
+                        'name': '中国'
+                    },
+                    {
+                        'value': 2,
+                        'name': '英国'
+                    },
+                    {
+                        'value': 3,
+                        'name': '苏格兰'
+                    },
+                    {
+                        'value': 4,
+                        'name': '爱尔兰'
+                    },
+                    {
+                        'value': 5,
+                        'name': '冰岛'
+                    },
+                    {
+                        'value': 6,
+                        'name': '法国'
+                    },
+                    {
+                        'value': 7,
+                        'name': '德国'
+                    }
+                ])
+                $('.shareOrNot').select('选择是或否', [{
+                        'value': 0,
+                        'name': '请选择'
+                    },
+                    {
+                        'value': 1,
+                        'name': '是'
+                    },
+                    {
+                        'value': 2,
+                        'name': '否'
+                    }
+                ])
+
+                //- 添加功能
+                var index = 0;
+                $(".addBtn").on('click', function() {
+                        var html = '<div class="from_wrapper addWrap">' +
+                            '            <div class="form_wrapper_item">' +
+                            '                <div class="title_item">' +
+                            '                    <div class="titleBox"><span class="text">子女' + index + '</span><a class="closeItem" href="javascript:;"></a></div>' +
+                            '                </div>' +
+                            '                <ul class="form children_edu_form">' +
+                            '                    <li class="form_item">' +
+                            '                        <div class="input_item">' +
+                            '                            <div class="input_item_text">姓名：</div>' +
+                            '                            <div class="input_wraper"><input class="input_wraper_item" type="text" placeholder="请输入"></div>' +
+                            '                        </div>' +
+                            '                    </li>' +
+                            '                    <li class="form_item">' +
+                            '                        <div class="selectBox">' +
+                            '                            <div class="leftText">证件类型：</div>' +
+                            '                            <div class="rightBox"><a class="idType' + index + ' selectInput" href="javascript:;">请选择</a>' +
+                            '                                <div class="selectIcon"></div>' +
+                            '                            </div>' +
+                            '                        </div>' +
+                            '                    </li>' +
+                            '                    <li class="form_item">' +
+                            '                        <div class="input_item">' +
+                            '                            <div class="input_item_text">证件号码：</div>' +
+                            '                            <div class="input_wraper"><input class="input_wraper_item" type="text" placeholder="请输入"></div>' +
+                            '                        </div>' +
+                            '                    </li>' +
+                            '                    <li class="form_item">' +
+                            '                        <div class="input_item">' +
+                            '                            <div class="input_item_text">出生日期：</div>' +
+                            '                            <div class="input_wraper"><input class="input_wraper_item" type="text" placeholder="请输入"></div>' +
+                            '                        </div>' +
+                            '                    </li>' +
+                            '                    <li class="form_item">' +
+                            '                        <div class="selectBox">' +
+                            '                            <div class="leftText">教育阶段：</div>' +
+                            '                            <div class="rightBox"><a class="eduStage' + index + '  selectInput" href="javascript:;">请选择</a>' +
+                            '                                <div class="selectIcon"></div>' +
+                            '                            </div>' +
+                            '                        </div>' +
+                            '                    </li>' +
+                            '                    <li class="form_item">' +
+                            '                        <div class="input_item">' +
+                            '                            <div class="input_item_text">就读学校：</div>' +
+                            '                            <div class="input_wraper"><input class="input_wraper_item" type="text" placeholder="请输入"></div>' +
+                            '                        </div>' +
+                            '                    </li>' +
+                            '                    <li class="form_item">' +
+                            '                        <div class="selectBox">' +
+                            '                            <div class="leftText">本年度申请享受扣除开始月份：</div>' +
+                            '                            <div class="rightBox">' +
+                            '                                <a class="startMonth' + index + ' selectInput" href="javascript:;">请选择</a>' +
+                            '                                <div class="selectIcon"></div>' +
+                            '                            </div>' +
+                            '                        </div>' +
+                            '                    </li>' +
+                            '                    <li class="form_item">' +
+                            '                        <div class="selectBox">' +
+                            '                            <div class="leftText">本年度申请享受扣除结束月份：</div>' +
+                            '                            <div class="rightBox">' +
+                            '                                <a class="endMonth' + index + ' selectInput" href="javascript:;">请选择</a>' +
+                            '                                <div class="selectIcon"></div>' +
+                            '                            </div>' +
+                            '                        </div>' +
+                            '                    </li>' +
+                            '                </ul>' +
+                            '            </div>' +
+                            '            <div class="form_wrapper_item">' +
+                            '                <div class="title_item">' +
+                            '                    <div class="titleBox"><span class="text">该子女另一方父/母信息</span></div>' +
+                            '                </div>' +
+                            '                <ul class="form parent_form">' +
+                            '                    <li class="form_item">' +
+                            '                        <div class="radio_item">' +
+                            '                            <div class="radio_item_text">是否为本人配偶</div>' +
+                            '                            <div class="radio_wraper"><label class="radio_item_box" for="radio2-1' + index + '"><input class="radio_item" type="radio" name="radio2' + index + '" id="radio2-1' + index + '"><i class="tip"></i><span class="text">是</span></label><label class="radio_item_box" for="radio2-2' + (index + '-' + 1) + '"><input class="radio_item" type="radio" name="radio2' + index + '" id="radio2-2' + (index + '-' + 1) + '"><i class="tip"></i><span class="text">否</span></label></div>' +
+                            '                        </div>' +
+                            '                    </li>' +
+                            '                    <li class="form_item">' +
+                            '                        <div class="input_item">' +
+                            '                            <div class="input_item_text">姓名：</div>' +
+                            '                            <div class="input_wraper"><input class="input_wraper_item" type="text" placeholder="请输入"></div>' +
+                            '                        </div>' +
+                            '                    </li>' +
+                            '                    <li class="form_item">' +
+                            '                        <div class="selectBox">' +
+                            '                            <div class="leftText">证件类型：</div>' +
+                            '                            <div class="rightBox">' +
+                            '                                <a class="idTypeParent' + index + ' selectInput" href="javascript:;">请选择</a>' +
+                            '                                <div class="selectIcon"></div>' +
+                            '                            </div>' +
+                            '                        </div>' +
+                            '                    </li>' +
+                            '                    <li class="form_item">' +
+                            '                        <div class="input_item">' +
+                            '                            <div class="input_item_text">证件号码：</div>' +
+                            '                            <div class="input_wraper"><input class="input_wraper_item" type="text" placeholder="请输入"></div>' +
+                            '                        </div>' +
+                            '                    </li>' +
+                            '                    <li class="form_item">' +
+                            '                        <div class="selectBox">' +
+                            '                            <div class="leftText">国籍：</div>' +
+                            '                            <div class="rightBox">' +
+                            '                                <a class="nationality' + index + ' selectInput" href="javascript:;">请选择</a>' +
+                            '                                <div class="selectIcon"></div>' +
+                            '                            </div>' +
+                            '                        </div>' +
+                            '                    </li>' +
+                            '                    <li class="form_item">' +
+                            '                        <div class="radio_item">' +
+                            '                            <div class="radio_item_text">是否为中国内地个人所得税纳税人：</div>' +
+                            '                            <div class="radio_wraper"><label class="radio_item_box" for="radio3-1' + index + '"><input class="radio_item" type="radio" name="radio3' + index + '" id="radio3-1' + index + '"><i class="tip"></i><span class="text">是</span></label><label class="radio_item_box" for="radio3-2' + (index + '-' + 1) + '"><input class="radio_item" type="radio" name="radio3' + index + '" id="radio3-2' + (index + '-' + 1) + '"><i class="tip"></i><span class="text">否</span></label></div>' +
+                            '                        </div>' +
+                            '                    </li>' +
+                            '                    <li class="form_item">' +
+                            '                        <div class="input_item">' +
+                            '                            <div class="input_item_text">纳税人识别号：</div>' +
+                            '                            <div class="input_wraper"><input class="input_wraper_item" type="text" placeholder="请输入"></div>' +
+                            '                        </div>' +
+                            '                    </li>' +
+                            '                    <li class="form_item">' +
+                            '                        <div class="selectBox">' +
+                            '                            <div class="leftText">是否与该子女另一方父/母分摊扣除：</div>' +
+                            '                            <div class="rightBox">' +
+                            '                                <a class="shareOrNot' + index + ' selectInput" href="javascript:;">请选择</a>' +
+                            '                                <div class="selectIcon"></div>' +
+                            '                            </div>' +
+                            '                        </div>' +
+                            '                    </li>' +
+                            '                    <li class="form_item value_item">' +
+                            '                        <div class="selectBox">' +
+                            '                            <div class="leftText">单月享受扣除金额：</div>' +
+                            '                            <div class="rightBox"><a class="selectInput light" href="javascript:;">1000元(该子女的另一方父母未享受扣除)</a></div>' +
+                            '                        </div>' +
+                            '                    </li>' +
+                            '                    <li class="form_item value_item">' +
+                            '                        <div class="selectBox">' +
+                            '                            <div class="leftText">今年截至本月累计已享受扣除金额：</div>' +
+                            '                            <div class="rightBox"><a class="selectInput light" href="javascript:;">700元</a></div>' +
+                            '                        </div>' +
+                            '                    </li>' +
+                            '                    <li class="form_item value_item">' +
+                            '                        <div class="selectBox">' +
+                            '                            <div class="leftText">全年预计享受扣除金额：</div>' +
+                            '                            <div class="rightBox"><a class="selectInput light" href="javascript:;">900元</a></div>' +
+                            '                        </div>' +
+                            '                    </li>' +
+                            '                </ul>' +
+                            '            </div>' +
+                            '        </div>'
+                        $(html).insertBefore(".addBtnBox");
+                        //- 初始化证件类型实例
+                        var currentIdType = '.idType' + index;
+                        $(currentIdType).select('请选择证件类型', [{
+                                'value': 0,
+                                'name': '请选择'
+                            },
+                            {
+                                'value': 1,
+                                'name': '二代身份证'
+                            }
+                        ])
+                        //- 初始化教育阶段实例
+                        var currentEduStage = '.eduStage' + index;
+                        $(currentEduStage).select('选择教育阶段', [{
+                                'value': 0,
+                                'name': '请选择'
+                            },
+                            {
+                                'value': 1,
+                                'name': '幼儿园'
+                            },
+                            {
+                                'value': 2,
+                                'name': '小学'
+                            },
+                            {
+                                'value': 3,
+                                'name': '初中'
+                            },
+                            {
+                                'value': 4,
+                                'name': '高中'
+                            },
+                            {
+                                'value': 5,
+                                'name': '大学'
+                            },
+                            {
+                                'value': 6,
+                                'name': '硕士'
+                            },
+                            {
+                                'value': 7,
+                                'name': '博士'
+                            }
+                        ])
+                        //- 初始化开始月份实例
+                        var currentStartMonth = '.startMonth' + index;
+                        $(currentStartMonth).select('选择开始月份', [{
+                                'value': 0,
+                                'name': '请选择'
+                            },
+                            {
+                                'value': 1,
+                                'name': '一月'
+                            },
+                            {
+                                'value': 2,
+                                'name': '二月'
+                            },
+                            {
+                                'value': 3,
+                                'name': '三月'
+                            },
+                            {
+                                'value': 4,
+                                'name': '四月'
+                            },
+                            {
+                                'value': 5,
+                                'name': '五月'
+                            },
+                            {
+                                'value': 6,
+                                'name': '六月'
+                            },
+                            {
+                                'value': 7,
+                                'name': '七月'
+                            },
+                            {
+                                'value': 8,
+                                'name': '八月'
+                            },
+                            {
+                                'value': 9,
+                                'name': '九月'
+                            },
+                            {
+                                'value': 10,
+                                'name': '十月'
+                            },
+                            {
+                                'value': 11,
+                                'name': '十一月'
+                            },
+                            {
+                                'value': 12,
+                                'name': '十二月'
+                            }
+                        ])
+                        //- 初始化结束月份实例
+                        var currentEndMonth = '.endMonth' + index;
+                        $('.endMonth').select('选择结束月份', [{
+                                'value': 0,
+                                'name': '请选择'
+                            },
+                            {
+                                'value': 1,
+                                'name': '一月'
+                            },
+                            {
+                                'value': 2,
+                                'name': '二月'
+                            },
+                            {
+                                'value': 3,
+                                'name': '三月'
+                            },
+                            {
+                                'value': 4,
+                                'name': '四月'
+                            },
+                            {
+                                'value': 5,
+                                'name': '五月'
+                            },
+                            {
+                                'value': 6,
+                                'name': '六月'
+                            },
+                            {
+                                'value': 7,
+                                'name': '七月'
+                            },
+                            {
+                                'value': 8,
+                                'name': '八月'
+                            },
+                            {
+                                'value': 9,
+                                'name': '九月'
+                            },
+                            {
+                                'value': 10,
+                                'name': '十月'
+                            },
+                            {
+                                'value': 11,
+                                'name': '十一月'
+                            },
+                            {
+                                'value': 12,
+                                'name': '十二月'
+                            }
+                        ])
+                        //- 初始化父母证件类型实例
+                        var currentIdTypeParent = 'idTypeParent' + index;
+                        $(currentIdTypeParent).select('请选择证件类型', [{
+                                'value': 0,
+                                'name': '请选择'
+                            },
+                            {
+                                'value': 1,
+                                'name': '二代身份证'
+                            }
+                        ])
+                        //- 初始化国籍
+                        var currentNationality = '.nationality' + index;
+                        $(currentNationality).select('请选择国籍', [{
+                                'value': 0,
+                                'name': '请选择'
+                            },
+                            {
+                                'value': 1,
+                                'name': '二代身份证'
+                            }
+                        ])
+                        //- 初始化是否分摊扣除实例
+                        var currentShareOrNot = '.shareOrNot' + index;
+                        $(currentShareOrNot).select('请选择国籍', [{
+                                'value': 0,
+                                'name': '请选择'
+                            },
+                            {
+                                'value': 1,
+                                'name': '二代身份证'
+                            }
+                        ])
+                        $(".closeItem").on('click', function() {
+                            $(this).parents(".from_wrapper").remove()
+                        });
+                        index++;
+                    }),
+                    //- 调起日期
+                    $('.calendar_slect').dateSelect();
+            });
+        </script>
+    </div>
+</body>
+
+</html>
