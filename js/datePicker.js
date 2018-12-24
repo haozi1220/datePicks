@@ -55,10 +55,10 @@ function dateSelectSwiper(obj) {
                     _self.currentMonth = _self.resultValue[1]-1;
                 }
                 var monDay = _self.isLeaYear(_self.currentYear, _self.currentMonth);
-                // _self.update(_self.selectSwiper2, monDay, _self.minD);
+                _self.update(_self.selectSwiper2, monDay, _self.minD);
                 _self.swiperData.activeIndex = swiper.activeIndex;
                 swiper.slideTo(_self.swiperData.activeIndex, 100, true);
-                _self.swiperData.activeIndex1 = _self.selectSwiper1.activeIndex1;
+                _self.swiperData.activeIndex1 = _self.selectSwiper1.activeIndex;
                 _self.selectSwiper1.slideTo(_self.swiperData.activeIndex1, 100, true);
                 _self.swiperData.activeIndex2 = _self.selectSwiper2.activeIndex2;
                 _self.selectSwiper2.slideTo(_self.swiperData.activeIndex2, 100, true);
@@ -80,19 +80,26 @@ function dateSelectSwiper(obj) {
                         swiper.slideTo(swiper.activeIndex1, 100, true)
                     };
                 })
+            },
+            onSlideChangeEnd: function(swiper) {
+                _self.resultValue = obj.value;
+                if(_self.flag){
+                    _self.currentYear = $('#year .swiper-slide-active').html();
+                }else {
+                    _self.currentYear = _self.resultValue[0];
+                }
+                _self.currentMonth = $('#month .swiper-slide-active').html() - 1;
+                var monDay = _self.isLeaYear(_self.currentYear, _self.currentMonth);
+                _self.update(_self.selectSwiper2, monDay, _self.minD);
+                _self.swiperData.activeIndex = _self.selectSwiper.activeIndex;
+                _self.selectSwiper.slideTo(_self.swiperData.activeIndex, 100, true);
+                _self.swiperData.activeIndex1 = swiper.activeIndex;
+                swiper.slideTo(_self.swiperData.activeIndex1, 100, true);
+                _self.swiperData.activeIndex2 = _self.selectSwiper2.activeIndex;
+                console.log(_self.selectSwiper2.activeIndex);
+                _self.selectSwiper2.slideTo(_self.swiperData.activeIndex2, 100, true);
+                _self.flag = true;
             }
-            // onSlideChangeEnd: function(swiper) {
-            //     _self.resultValue = obj.value;
-            //     if(_self.flag){
-            //         _self.currentYear = $('#year .swiper-slide-active').html();
-            //     }else {
-            //         _self.currentYear = _self.resultValue[0];
-            //     }
-            //     _self.currentMonth = $('#month .swiper-slide-active').html() - 1;
-            //     var monDay = _self.isLeaYear(_self.currentYear, _self.currentMonth);
-            //     _self.update(_self.selectSwiper2, monDay, _self.minD);
-            //     _self.flag = true;
-            // }
         });
         // 初始化日期
         _self.selectSwiper2 = new Swiper('#day', {
@@ -106,9 +113,18 @@ function dateSelectSwiper(obj) {
                 $('.swiper-slide').each(function() {
                     if(_self.resultValue[2] === $(this).html()){
                         swiper.activeIndex2 = $(this).index();
+                        console.log(swiper.activeIndex2);
                         swiper.slideTo(swiper.activeIndex2, 100, true)
                     };
                 })
+            },
+            onSlideChangeEnd: function(swiper){
+                _self.swiperData.activeIndex = _self.selectSwiper.activeIndex;
+                _self.selectSwiper.slideTo(_self.swiperData.activeIndex, 100, true);
+                _self.swiperData.activeIndex1 = _self.selectSwiper1.activeIndex;
+                _self.selectSwiper1.slideTo(_self.swiperData.activeIndex1, 100, true);
+                _self.swiperData.activeIndex2 = swiper.activeIndex;
+                swiper.slideTo(_self.swiperData.activeIndex2, 100, true);
             }
         })
     }
