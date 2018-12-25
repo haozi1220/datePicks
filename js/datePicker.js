@@ -18,13 +18,14 @@ function dateSelectSwiper(obj) {
     _self.selectSwiper1 = null;
     _self.selectSwiper2 = null;
     _self.flag = false;
-    _self.resultValue = [];
+    // _self.resultValue = [];
     _self.swiperData = {};
     _self.swiperData.activeIndex = (typeof obj.activeIndex === 'number' && obj.activeIndex >= 0) ? obj.activeIndex : 0;
     _self.swiperData.activeIndex1 = (typeof obj.activeIndex === 'number' && obj.activeIndex >= 0) ? obj.activeIndex : 0;
     _self.swiperData.activeIndex2 = (typeof obj.activeIndex === 'number' && obj.activeIndex >= 0) ? obj.activeIndex : 0;
     _self.swiperData.value = obj.value;
     _self.swiperData.closeFun = obj.closeFun || function() {};
+    _self.resultValue = obj.value;
     _self.swiperData.init = obj.init;
     var hgSelect = '<div class="addSelect_box"><div class="select addressSelect"><div class="top"><a class="close" href="javascript:;">取消</a><span class="title">日期选择</span><a class="ok" href="javascript:;">确定</a></div><div class="selectData"><div class="swiper-container" id="year"><div class="swiper-wrapper"></div></div><div class="swiper-container" id="month"><div class="swiper-wrapper"></div></div><div class="swiper-container" id="day"><div class="swiper-wrapper"></div></div></div></div></div>';
     _self.init = function() {
@@ -37,7 +38,6 @@ function dateSelectSwiper(obj) {
             centeredSlides: true,
             slideToClickedSlide: true,
             onInit: function(swiper) {
-                _self.resultValue = obj.value;
                 _self.update(swiper, _self.orangeY, _self.minY);
                 $('.swiper-slide').each(function() {
                     if(_self.resultValue[0] === $(this).html()){
@@ -46,23 +46,17 @@ function dateSelectSwiper(obj) {
                 })
             },
             onSlideChangeEnd: function(swiper) {
-                _self.resultValue = obj.value;
-                var changeYear = _self.currentYear;
+                // var changeYear = _self.currentYear;
                 _self.currentYear = $('#year .swiper-slide-active').html();
-                if(_self.flag) {
-                    _self.currentMonth = $('#month .swiper-slide-active').html() - 1
-                }else {
-                    _self.currentMonth = _self.resultValue[1]-1;
-                }
+                _self.resultValue[0] = _self.currentYear;
+                // if(_self.flag) {
+                _self.currentMonth = $('#month .swiper-slide-active').html() - 1
+                // }else {
+                    // _self.currentMonth = _self.resultValue[1]-1;
+                // }
                 var monDay = _self.isLeaYear(_self.currentYear, _self.currentMonth);
                 _self.update(_self.selectSwiper2, monDay, _self.minD);
-                _self.swiperData.activeIndex = swiper.activeIndex;
-                swiper.slideTo(_self.swiperData.activeIndex, 100, true);
-                _self.swiperData.activeIndex1 = _self.selectSwiper1.activeIndex;
-                _self.selectSwiper1.slideTo(_self.swiperData.activeIndex1, 100, true);
-                _self.swiperData.activeIndex2 = _self.selectSwiper2.activeIndex2;
-                _self.selectSwiper2.slideTo(_self.swiperData.activeIndex2, 100, true);
-                _self.flag = true;
+                _self.selectSwiper2.slideTo(_self.selectSwiper2.activeIndex2, 100, true)
             }
         });
         // 初始化月份
@@ -72,33 +66,25 @@ function dateSelectSwiper(obj) {
             centeredSlides: true,
             slideToClickedSlide: true,
             onInit: function(swiper) {
-                _self.resultValue = obj.value;
                 _self.update(swiper, _self.maxM, _self.minM);
                 $('.swiper-slide').each(function() {
                     if(_self.resultValue[1] === $(this).html()){
-                        swiper.activeIndex1 = $(this).index();
-                        swiper.slideTo(swiper.activeIndex1, 100, true)
+                        swiper.slideTo($(this).index(), 100, true)
                     };
                 })
             },
             onSlideChangeEnd: function(swiper) {
-                _self.resultValue = obj.value;
-                if(_self.flag){
-                    _self.currentYear = $('#year .swiper-slide-active').html();
-                }else {
-                    _self.currentYear = _self.resultValue[0];
-                }
+                // if(_self.flag){
+                _self.currentYear = $('#year .swiper-slide-active').html();
+                // }else {
+                    // _self.currentYear = _self.resultValue[0];
+                // }
                 _self.currentMonth = $('#month .swiper-slide-active').html() - 1;
+                _self.resultValue[1] = String(_self.currentMonth + 1);
                 var monDay = _self.isLeaYear(_self.currentYear, _self.currentMonth);
                 _self.update(_self.selectSwiper2, monDay, _self.minD);
-                _self.swiperData.activeIndex = _self.selectSwiper.activeIndex;
-                _self.selectSwiper.slideTo(_self.swiperData.activeIndex, 100, true);
-                _self.swiperData.activeIndex1 = swiper.activeIndex;
-                swiper.slideTo(_self.swiperData.activeIndex1, 100, true);
-                _self.swiperData.activeIndex2 = _self.selectSwiper2.activeIndex;
-                console.log(_self.selectSwiper2.activeIndex);
-                _self.selectSwiper2.slideTo(_self.swiperData.activeIndex2, 100, true);
-                _self.flag = true;
+                _self.selectSwiper2.slideTo(_self.selectSwiper2.activeIndex2, 100, true)
+                // _self.flag = true;
             }
         });
         // 初始化日期
@@ -108,25 +94,29 @@ function dateSelectSwiper(obj) {
             centeredSlides: true,
             slideToClickedSlide: true,
             onInit: function(swiper) {
-                _self.resultValue = obj.value;
+                // _self.resultValue = obj.value;
                 _self.update(swiper, _self.maxD, _self.minD);
                 $('.swiper-slide').each(function() {
                     if(_self.resultValue[2] === $(this).html()){
                         swiper.activeIndex2 = $(this).index();
-                        console.log(swiper.activeIndex2);
-                        swiper.slideTo(swiper.activeIndex2, 100, true)
+                        swiper.slideTo($(this).index(), 100, true)
                     };
                 })
             },
-            onSlideChangeEnd: function(swiper){
-                _self.swiperData.activeIndex = _self.selectSwiper.activeIndex;
-                _self.selectSwiper.slideTo(_self.swiperData.activeIndex, 100, true);
-                _self.swiperData.activeIndex1 = _self.selectSwiper1.activeIndex;
-                _self.selectSwiper1.slideTo(_self.swiperData.activeIndex1, 100, true);
-                _self.swiperData.activeIndex2 = swiper.activeIndex;
-                swiper.slideTo(_self.swiperData.activeIndex2, 100, true);
+            onSlideChangeEnd: function(swiper) {
+                _self.selectSwiper2.activeIndex2 = swiper.activeIndex;
+                _self.resultValue[2] = $('#day .swiper-slide-active').html();
+                swiper.slideTo(_self.selectSwiper2.activeIndex2, 100, false)
             }
-        })
+        });
+        _self.el = $('.addSelect_box');
+        _self.el.find('.ok').on('click', _self.okSelectSwiper);
+        _self.el.find('.close').on('click', function() {
+            _self.swiperData.closeFun();
+            _self.closeSelectSwiper();
+        });
+        _self.el.on('click', function() { _self.el.find('.close').trigger('click'); });
+        $('.select').on('click', function(e) { e.stopPropagation(); });
     }
     // 更新函数
     _self.update = function(swiper, dateArg, minData) {
@@ -158,7 +148,16 @@ function dateSelectSwiper(obj) {
     _self.openSelectSwiper = function() {
         var _self = this;
         _self.init();
-        // $.Modalshow();
-        // console.log(111);
+        $.Modalshow();
+    }
+    _self.okSelectSwiper = function() {
+        var currentResultVal = _self.resultValue[0] + '-' + _self.resultValue[1] + '-' + _self.resultValue[2];
+        _self.btn.text(currentResultVal);
+        $('.addSelectBox .selectIcon').css({'margin-left': '.5rem'});
+        _self.closeSelectSwiper();
+    }
+    _self.closeSelectSwiper = function() {
+        _self.el.remove();
+        $.Modalhide();
     }
 }
