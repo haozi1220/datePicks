@@ -1,5 +1,4 @@
 function dateSelectSwiper(obj) {
-    console.log(obj);
     var _self = this;
     _self.el = $('.addSelect_box');
     _self.btn = $(obj.btn);
@@ -39,11 +38,12 @@ function dateSelectSwiper(obj) {
             slideToClickedSlide: true,
             onInit: function(swiper) {
                 _self.update(swiper, _self.orangeY, _self.minY);
-                $('.swiper-slide').each(function() {
-                    if(_self.resultValue[0] === $(this).html()){
-                        swiper.slideTo($(this).index(), 100, true)
-                    };
-                })
+                // $('.swiper-slide').each(function() {
+                //     if(_self.resultValue[0] === $(this).html()){
+                //         swiper.slideTo($(this).index(), 100, true)
+                //     };
+                // })
+                _self.selectSwiperSlideTo(swiper, _self.resultValue[0])
             },
             onSlideChangeEnd: function(swiper) {
                 // var changeYear = _self.currentYear;
@@ -67,11 +67,12 @@ function dateSelectSwiper(obj) {
             slideToClickedSlide: true,
             onInit: function(swiper) {
                 _self.update(swiper, _self.maxM, _self.minM);
-                $('.swiper-slide').each(function() {
-                    if(_self.resultValue[1] === $(this).html()){
-                        swiper.slideTo($(this).index(), 100, true)
-                    };
-                })
+                // $('.swiper-slide').each(function() {
+                //     if(_self.resultValue[1] === $(this).html()){
+                //         swiper.slideTo($(this).index(), 100, true)
+                //     };
+                // })
+                _self.selectSwiperSlideTo(swiper, _self.resultValue[1])
             },
             onSlideChangeEnd: function(swiper) {
                 // if(_self.flag){
@@ -144,6 +145,13 @@ function dateSelectSwiper(obj) {
             }
         }
         return _self.maxD;
+    }
+    _self.selectSwiperSlideTo = function(swiper, stringArg) {
+        $('.swiper-slide').each(function() {
+            if(stringArg === $(this).html()){
+                swiper.slideTo($(this).index(), 100, true)
+            };
+        })
     }
     _self.openSelectSwiper = function() {
         var _self = this;
