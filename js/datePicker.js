@@ -38,25 +38,12 @@ function dateSelectSwiper(obj) {
             slideToClickedSlide: true,
             onInit: function(swiper) {
                 _self.update(swiper, _self.orangeY, _self.minY);
-                // $('.swiper-slide').each(function() {
-                //     if(_self.resultValue[0] === $(this).html()){
-                //         swiper.slideTo($(this).index(), 100, true)
-                //     };
-                // })
                 _self.selectSwiperSlideTo(swiper, _self.resultValue[0])
             },
             onSlideChangeEnd: function(swiper) {
-                // var changeYear = _self.currentYear;
                 _self.currentYear = $('#year .swiper-slide-active').html();
                 _self.resultValue[0] = _self.currentYear;
-                // if(_self.flag) {
-                _self.currentMonth = $('#month .swiper-slide-active').html() - 1
-                // }else {
-                    // _self.currentMonth = _self.resultValue[1]-1;
-                // }
-                var monDay = _self.isLeaYear(_self.currentYear, _self.currentMonth);
-                _self.update(_self.selectSwiper2, monDay, _self.minD);
-                _self.selectSwiper2.slideTo(_self.selectSwiper2.activeIndex2, 100, true)
+                _self.changeMaxD(_self.selectSwiper2);
             }
         });
         // 初始化月份
@@ -67,25 +54,12 @@ function dateSelectSwiper(obj) {
             slideToClickedSlide: true,
             onInit: function(swiper) {
                 _self.update(swiper, _self.maxM, _self.minM);
-                // $('.swiper-slide').each(function() {
-                //     if(_self.resultValue[1] === $(this).html()){
-                //         swiper.slideTo($(this).index(), 100, true)
-                //     };
-                // })
                 _self.selectSwiperSlideTo(swiper, _self.resultValue[1])
             },
             onSlideChangeEnd: function(swiper) {
-                // if(_self.flag){
-                _self.currentYear = $('#year .swiper-slide-active').html();
-                // }else {
-                    // _self.currentYear = _self.resultValue[0];
-                // }
                 _self.currentMonth = $('#month .swiper-slide-active').html() - 1;
                 _self.resultValue[1] = String(_self.currentMonth + 1);
-                var monDay = _self.isLeaYear(_self.currentYear, _self.currentMonth);
-                _self.update(_self.selectSwiper2, monDay, _self.minD);
-                _self.selectSwiper2.slideTo(_self.selectSwiper2.activeIndex2, 100, true)
-                // _self.flag = true;
+                _self.changeMaxD(_self.selectSwiper2);
             }
         });
         // 初始化日期
@@ -95,14 +69,9 @@ function dateSelectSwiper(obj) {
             centeredSlides: true,
             slideToClickedSlide: true,
             onInit: function(swiper) {
-                // _self.resultValue = obj.value;
-                _self.update(swiper, _self.maxD, _self.minD);
-                $('.swiper-slide').each(function() {
-                    if(_self.resultValue[2] === $(this).html()){
-                        swiper.activeIndex2 = $(this).index();
-                        swiper.slideTo($(this).index(), 100, true)
-                    };
-                })
+                var currentDays =  _self.isLeaYear(_self.currentYear, _self.currentMonth);
+                _self.update(swiper, currentDays, _self.minD);
+                _self.selectSwiperSlideTo(swiper, _self.resultValue[2])
             },
             onSlideChangeEnd: function(swiper) {
                 _self.selectSwiper2.activeIndex2 = swiper.activeIndex;
@@ -128,9 +97,26 @@ function dateSelectSwiper(obj) {
         }
         swiper.appendSlide(s);
     };
+    _self.changeMaxD = function(swiper) {
+        var currentLastDay = $('#day .swiper-slide').eq(swiper.slides.length-1).html(); //获取当前月份的最后一天
+        var monDay = _self.isLeaYear(_self.currentYear, _self.currentMonth); //月份改变之后的总天数
+        var differVal = monDay - currentLastDay;
+        if(differVal < 0) {
+            var s = [];
+            for(var i = 0; i < Math.abs(differVal); i ++){
+                s.push(monDay + i);
+            }
+            swiper.removeSlide(s);
+        } else if(differVal > 0) {
+            var s = [];
+            for(var i = 0; i < Math.abs(differVal); i ++){
+                s[i] = '<div class="swiper-slide">' + (Number(currentLastDay) + i + 1) + '</div>';
+            }
+            swiper.appendSlide(s);
+        }
+    }
     // 是否闰年函数和月份返回月份天数
     _self.isLeaYear = function(year, month) {
-        // console.log(year, month);
         if(month == 1){
             if((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0 && year % 4000 != 0)){
                 _self.maxD = 29;
